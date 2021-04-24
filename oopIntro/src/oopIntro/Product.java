@@ -12,7 +12,7 @@ public class Product {
 	}
 	
 	public Product(int id, String name, double unitPrice, String detail) {
-		this(); // Runs the this class's constructor that has no parameter.
+		this(); // Runs this class's constructor that has no parameter.
 		this.id = id;
 		this.name = name;
 		this.unitPrice = unitPrice;
