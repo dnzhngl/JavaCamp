@@ -1,7 +1,10 @@
 package inheritance2;
 
 public class LogManager {
+	
 	public void log(int logType) {
+		
+		// if abuse
 		if (logType == 1) {
 			System.out.println("Logged to database");
 		}
