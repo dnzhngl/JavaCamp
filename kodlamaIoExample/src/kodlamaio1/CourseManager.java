@@ -1,4 +1,4 @@
-package kodlamaioExample;
+package kodlamaio1;
 
 public class CourseManager {
 	
