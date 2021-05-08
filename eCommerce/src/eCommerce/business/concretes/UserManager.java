@@ -8,15 +8,14 @@ import eCommerce.entities.concretes.User;
 public class UserManager implements UserService{
 
 	private UserDao userDao;
-	private UserValidator userValidator;
-
-	public UserManager(UserDao userDao,  UserValidator userValidator) {
+	public UserManager(UserDao userDao) {
 		this.userDao = userDao;
-		this.userValidator = userValidator;
 	}
 
 	@Override
 	public void add(User user) {
+		UserValidator userValidator = new UserValidator();
+		
 		if(!(userValidator.checkIfEmailValid(user) && userValidator.checkIfPasswordValid(user) && userValidator.checkIfFullNameValid(user))) {
 			System.out.println("User information is invalid.");
 			return;

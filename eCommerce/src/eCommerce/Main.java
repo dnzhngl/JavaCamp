@@ -14,9 +14,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		
-		UserValidator userValidator = new UserValidator();
-		UserManager userManager = new UserManager(new InMemoryUserDao(), userValidator);
-
+		UserManager userManager = new UserManager(new InMemoryUserDao());
 		AccountActivationManager accountActivation = new AccountActivationManager(new MailManager());
 		LoginWithGmailAdapter loginWithGmail = new LoginWithGmailAdapter();
 		AuthManager authManager = new AuthManager(userManager, accountActivation, loginWithGmail);
