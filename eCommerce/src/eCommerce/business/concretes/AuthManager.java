@@ -44,7 +44,9 @@ public class AuthManager implements AuthService{
 			return;
 		}
 		userService.add(user);
+		
 		accountActivationService.sendActivationCode(user.getEmail());
+		userService.activateUser(user);
 	}
 
 	@Override

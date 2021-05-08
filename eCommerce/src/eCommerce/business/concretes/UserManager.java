@@ -38,4 +38,9 @@ public class UserManager implements UserService{
 		userDao.activateUser(user);
 	}
 
+	@Override
+	public User getById(int id) {
+		return userDao.getById(id);
+	}
+
 }

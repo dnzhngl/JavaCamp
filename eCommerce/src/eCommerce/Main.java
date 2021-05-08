@@ -2,7 +2,6 @@ package eCommerce;
 
 import eCommerce.business.concretes.AuthManager;
 import eCommerce.business.concretes.UserManager;
-import eCommerce.business.validationRules.UserValidator;
 import eCommerce.core.adapters.LoginWithGmailAdapter;
 import eCommerce.core.utils.accountActivator.AccountActivationManager;
 import eCommerce.core.utils.mail.MailManager;
