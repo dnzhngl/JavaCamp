@@ -6,8 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-//import lombok.Data;
-//@Data
+import lombok.Data;
+@Data // Lombok, @Data -getter setter oluşturur.
 @Entity  // Bu classın bir veritabanı nesnesi olduğunu belirtir.
 @Table(name="products")  // Veri tabanında hangi tabloya denk geldiği verilir.
 public class Product {
@@ -45,51 +45,54 @@ public class Product {
 		this.quantityPerUnit = quantityPerUnit;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public int getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
-	}
-
-	public String getProductName() {
-		return productName;
-	}
-
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
-
-	public double getUnitPrice() {
-		return unitPrice;
-	}
-
-	public void setUnitPrice(double unitPrice) {
-		this.unitPrice = unitPrice;
-	}
-
-	public short getUnitsInStock() {
-		return unitsInStock;
-	}
-
-	public void setUnitsInStock(short unitsInStock) {
-		this.unitsInStock = unitsInStock;
-	}
-
-	public String getQuantityPerUnit() {
-		return quantityPerUnit;
-	}
-
-	public void setQuantityPerUnit(String quantityPerUnit) {
-		this.quantityPerUnit = quantityPerUnit;
-	}
+// Lombok - Default constructor oluşturur. Ancak paramereleri constructor oluşturulduğunda, default constructor'ı ezer. O yüzden hem default hemde parametreli constructor oluşturulmalıdır.
+// Lombok getter ve setter'ların arka planda oluşturulmasını sağlar.
+	
+//	public int getId() {
+//		return id;
+//	}
+//
+//	public void setId(int id) {
+//		this.id = id;
+//	}
+//
+//	public int getCategoryId() {
+//		return categoryId;
+//	}
+//
+//	public void setCategoryId(int categoryId) {
+//		this.categoryId = categoryId;
+//	}
+//
+//	public String getProductName() {
+//		return productName;
+//	}
+//
+//	public void setProductName(String productName) {
+//		this.productName = productName;
+//	}
+//
+//	public double getUnitPrice() {
+//		return unitPrice;
+//	}
+//
+//	public void setUnitPrice(double unitPrice) {
+//		this.unitPrice = unitPrice;
+//	}
+//
+//	public short getUnitsInStock() {
+//		return unitsInStock;
+//	}
+//
+//	public void setUnitsInStock(short unitsInStock) {
+//		this.unitsInStock = unitsInStock;
+//	}
+//
+//	public String getQuantityPerUnit() {
+//		return quantityPerUnit;
+//	}
+//
+//	public void setQuantityPerUnit(String quantityPerUnit) {
+//		this.quantityPerUnit = quantityPerUnit;
+//	}
 }
