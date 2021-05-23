@@ -3,17 +3,22 @@ package kodlamaio.northwind.entities.concretes;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 @Data // Lombok, @Data -getter setter oluşturur.
+@AllArgsConstructor // Parametreli constructor
+@NoArgsConstructor // Parametresiz constructor
 @Entity  // Bu classın bir veritabanı nesnesi olduğunu belirtir.
 @Table(name="products")  // Veri tabanında hangi tabloya denk geldiği verilir.
 public class Product {
 	
 	@Id	// Id alanı olduğu belirtirilir.Bu sayede JPA ya ve Hibernate bu tablonun Id'sini belirtiyoruz.
-	@GeneratedValue  // Id değeri database'de birer birer artılırı belirtir
+	@GeneratedValue(strategy = GenerationType.IDENTITY)  // Id değeri database'de birer birer artılırı belirtir.
 	@Column(name="product_id") // Tabloda denk geldiği kolon adı verilir. 
 	private int id;
 	
@@ -32,18 +37,17 @@ public class Product {
 	@Column(name="quantity_per_unit")
 	private String quantityPerUnit;
 	
-	public Product() {}
-	
-	public Product(int id, int categoryId, String productName, double unitPrice, short unitsInStock,
-			String quantityPerUnit) {
-		super();
-		this.id = id;
-		this.categoryId = categoryId;
-		this.productName = productName;
-		this.unitPrice = unitPrice;
-		this.unitsInStock = unitsInStock;
-		this.quantityPerUnit = quantityPerUnit;
-	}
+//	public Product() {}
+//	public Product(int id, int categoryId, String productName, double unitPrice, short unitsInStock,
+//			String quantityPerUnit) {
+//		super();
+//		this.id = id;
+//		this.categoryId = categoryId;
+//		this.productName = productName;
+//		this.unitPrice = unitPrice;
+//		this.unitsInStock = unitsInStock;
+//		this.quantityPerUnit = quantityPerUnit;
+//	}
 
 // Lombok - Default constructor oluşturur. Ancak paramereleri constructor oluşturulduğunda, default constructor'ı ezer. O yüzden hem default hemde parametreli constructor oluşturulmalıdır.
 // Lombok getter ve setter'ların arka planda oluşturulmasını sağlar.
