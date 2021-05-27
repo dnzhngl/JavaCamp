@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.northwind.business.abstracts.ProductService;
@@ -35,5 +36,37 @@ public class ProductsController {
 	public Result add(@RequestBody Product product) { // Gelen requestin body'sini almak için kullanılan notasyon RequestBody == Dotnet FromBody
 		return productService.add(product);
 	}
+	
+	@GetMapping("/getByProductName")
+	public DataResult<Product> getByProductName(@RequestParam String productName){ // RequestParam : yapılan isteğin parametrelerine bak, o parametreyi oku.
+		return productService.getByProductName(productName);
+	}
+	
+	@GetMapping("/getByProductNameAndCategoryId")
+	public DataResult<Product> getByProductNameAndCategoryId(@RequestParam("productName") String productName, @RequestParam("categoryId") int categoryId){
+		return this.productService.getByProductNameAndCategoryId(productName, categoryId);
+	}
+
+	@GetMapping("/getByProductNameContains")
+	public 	DataResult<List<Product>> getByProductNameContains(@RequestParam String productName){
+		return this.productService.getByProductNameContains(productName);
+	}
+
+	@GetMapping("/getAllByPage")
+	public DataResult<List<Product>> getAll(int pageNo, int pageSize){
+		return this.productService.getAll(pageNo-1, pageSize);
+	}
+	
+	@GetMapping("/getAllDesc")
+	public DataResult<List<Product>> getAllSorted(){
+		return this.productService.getAllSorted();
+	}
+	
+	@GetMapping("/getByNameAndCategoryId")
+	public DataResult<List<Product>> getByNameAndCategoryId(@RequestParam String productName, @RequestParam int categoryId){
+		return this.productService.getByNameAndCategoryId(productName, categoryId);
+	}
+
+	
 }
 // kodlama.io/api/products/getall
